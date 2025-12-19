@@ -1,0 +1,185 @@
+# reelsbot blocked terms (initial)
+# One term per line. Case-insensitive match recommended.
+# Keep conservative; tune after observing false positives.
+
+# Medical / health claims (avoid implying treatment/cure)
+cure
+treat
+diagnose
+diagnosis
+therapy
+therapeutic
+medicine
+medication
+prescription
+drug
+antibiotic
+antidepressant
+anxiety cure
+depression cure
+ptsd
+adhd
+autism
+cancer
+tumor
+diabetes
+hypertension
+blood pressure
+cholesterol
+heart attack
+stroke
+covid
+vaccine
+side effects
+miracle
+guaranteed results
+clinically proven
+
+# Finance / investing (avoid advice-like content)
+investment
+invest
+trading
+trade
+stock
+crypto
+bitcoin
+forex
+options
+futures
+leverage
+day trading
+get rich
+passive income
+financial advice
+not financial advice
+tax advice
+guaranteed profit
+
+# Legal / compliance advice
+legal advice
+lawsuit
+attorney
+lawyer
+sue
+illegal
+pirated
+counterfeit
+
+# Politics / conflict / war
+election
+vote
+president
+prime minister
+democrat
+republican
+conservative
+liberal
+parliament
+government
+propaganda
+war
+invasion
+genocide
+terrorist
+terrorism
+
+# Violence / weapons
+gun
+firearm
+rifle
+pistol
+ammo
+ammunition
+bomb
+explosive
+grenade
+knife
+stabbing
+shooting
+kill
+murder
+suicide
+self-harm
+
+# Hate / harassment / slurs (minimal starter list; expand as needed)
+racist
+white supremacy
+nazi
+hitler
+kkk
+slur
+retard
+
+# Sex / adult content
+porn
+sexual
+nude
+nudity
+onlyfans
+fetish
+
+# Drugs / controlled substances
+cocaine
+heroin
+meth
+mdma
+ecstasy
+lsd
+mushroom
+weed
+marijuana
+thc
+
+# Real-brand / trademark-sensitive generic cues (E向けの初期ガード)
+official
+authentic
+limited edition
+collaboration
+collab
+brand new iPhone
+Apple
+Google
+Meta
+Instagram
+TikTok
+YouTube
+Netflix
+Disney
+Nike
+Adidas
+Coca-Cola
+Starbucks
+McDonald
+Amazon
+
+# Doxxing / personal data
+address
+phone number
+email
+dm me
+send money
+wire transfer
+
+# Japanese (basic mirrors, in case JP text is accidentally generated)
+治る
+治療
+診断
+処方
+薬
+投資
+株
+仮想通貨
+暗号資産
+政治
+選挙
+戦争
+銃
+爆弾
+自殺
+ポルノ
+ヌード
+覚醒剤
+麻薬
+大麻
+住所
+電話番号

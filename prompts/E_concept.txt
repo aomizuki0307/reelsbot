@@ -1,0 +1,15 @@
+Create a fictional concept design video for Instagram Reels.
+Constraints:
+- Aspect ratio 9:16, duration {seconds}s
+- Must be clearly fictional: no real company names, no existing brand resemblance, no famous characters
+- No real logos, no trademark-like marks, no celebrity likeness
+Concept:
+- Category: {category} (cafe / packaging / poster / app_ui)
+- Invented brand name: "{brand}"
+- Concept title: "{concept}"
+Style:
+- Clean, modern, minimal, design showcase
+Camera:
+- Slow pan / gentle zoom, studio-like presentation
+Deliverable:
+- Video suitable for Reels; keep background uncluttered for overlay text.

@@ -1,0 +1,12 @@
+Generate a seamless looping abstract animation for Instagram Reels.
+Constraints:
+- Aspect ratio 9:16, duration {seconds}s, perfect seamless loop
+- No text, no logos, no watermark, no real-world brands
+- Visually clean, high contrast readability for overlay text (optional)
+Style:
+- Theme: {theme} (choose one: fluid / geometric / kinetic / particles / gradient)
+- Mood: {mood} (choose one: calm / dreamy / energetic / minimal)
+Camera:
+- Subtle movement only (no chaotic shake)
+Deliverable:
+- Video suitable for Reels, loop-friendly motion, no flicker.

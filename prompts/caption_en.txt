@@ -1,0 +1,27 @@
+# Caption templates (EN). Keep short, non-assertive, no claims.
+# Use placeholders: {series}, {n}, {mood}, {tagline}, {brand}, {concept}
+
+[A]
+{tagline}
+A {mood} loop for a quick reset.
+Save if you want more.
+
+# Optional variants (rotate to reduce repetition)
+# 1) Watching this till it loops.
+# 2) 10 seconds of calm.
+# 3) A tiny visual break.
+
+# Suggested safe hashtags (pick 5-12)
+#oddlysatisfying #abstractart #loop #motiondesign #generativeart #digitalart #animation #visuals #calm #aesthetic
+
+[E]
+Fictional concept design: {concept}
+Invented brand: {brand}
+Thoughts?
+
+# Optional variants
+# Concept design (fictional). What would you name it?
+# A fictional product concept — built for vibes, not reality.
+
+# Suggested safe hashtags (pick 5-12)
+#conceptdesign #fictional #productdesign #graphicdesign #packagingdesign #3drender #designconcept #visualidentity #branding #designinspiration
