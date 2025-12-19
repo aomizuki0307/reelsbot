@@ -37,8 +37,8 @@ class ReelsbotConfig(BaseSettings):
         description="OpenAI API key for GPT models",
     )
     openai_model: str = Field(
-        default="gpt-4o-mini",
-        description="OpenAI model to use",
+        default="gpt-5-mini",
+        description="OpenAI model to use (GPT-5 mini - faster, cost-efficient)",
     )
 
     # Anthropic Settings (alternative)
