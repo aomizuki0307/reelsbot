@@ -27,11 +27,21 @@ class ReelsbotConfig(BaseSettings):
 
     # LLM Provider Settings
     llm_provider: Literal["anthropic", "openai"] = Field(
-        default="anthropic",
+        default="openai",
         description="LLM provider to use (anthropic or openai)",
     )
 
-    # Anthropic Settings
+    # OpenAI Settings (primary)
+    openai_api_key: str = Field(
+        default="",
+        description="OpenAI API key for GPT models",
+    )
+    openai_model: str = Field(
+        default="gpt-4o-mini",
+        description="OpenAI model to use",
+    )
+
+    # Anthropic Settings (alternative)
     anthropic_api_key: str = Field(
         default="",
         description="Anthropic API key for Claude models",
@@ -39,16 +49,6 @@ class ReelsbotConfig(BaseSettings):
     anthropic_model: str = Field(
         default="claude-sonnet-4-20250514",
         description="Anthropic model to use",
-    )
-
-    # OpenAI Settings
-    openai_api_key: str = Field(
-        default="",
-        description="OpenAI API key for GPT models",
-    )
-    openai_model: str = Field(
-        default="gpt-4-turbo-preview",
-        description="OpenAI model to use",
     )
 
     # LLM Generation Settings
