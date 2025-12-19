@@ -13,12 +13,12 @@ class TestReelsbotConfig:
     def test_default_values(self) -> None:
         """Test that default configuration values are set correctly."""
         config = ReelsbotConfig(
-            anthropic_api_key="test-key",
+            openai_api_key="test-key",
             default_a_ratio=70,
             default_e_ratio=30,
         )
 
-        assert config.llm_provider == "anthropic"
+        assert config.llm_provider == "openai"
         assert config.llm_temperature == 0.7
         assert config.llm_max_tokens == 2000
         assert config.default_a_duration_min == 8
