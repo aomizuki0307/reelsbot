@@ -689,11 +689,253 @@ dir outputs\run_*\*.mp4
 - CLI interface
 - Dry-run publisher
 
+### Phase 5: Instagram Publishing & Scheduling (COMPLETED)
+- Instagram Graph API integration
+- S3-compatible and static URL storage adapters
+- Scheduled posting with SQLite queue
+- Background worker daemon
+- Rate limiting and retry logic
+- Token masking for security
+
+---
+
+## Instagram Publishing
+
+reelsbot now supports automated publishing to Instagram via the Graph API, with both immediate and scheduled posting capabilities.
+
+### Setup Requirements
+
+1. **Instagram Professional Account** (Business or Creator)
+   - Convert your account at: Instagram Settings → Account → Switch to Professional Account
+
+2. **Facebook Developer App**
+   - Create app at: https://developers.facebook.com/apps/
+   - Add Instagram Basic Display product
+   - Configure permissions: `instagram_basic`, `instagram_content_publish`, `pages_read_engagement`
+
+3. **Long-Lived Access Token**
+   - Generate at: https://developers.facebook.com/tools/explorer/
+   - Exchange for 60-day token (see Meta documentation)
+   - Get Instagram User ID from: `https://graph.facebook.com/v22.0/me/accounts?access_token=YOUR_TOKEN`
+
+4. **Storage Configuration**
+
+   **Option A: S3-Compatible Storage (Recommended)**
+   ```ini
+   STORAGE_TYPE=s3
+   STORAGE_S3_BUCKET=your-bucket-name
+   STORAGE_S3_ACCESS_KEY=your-access-key
+   STORAGE_S3_SECRET_KEY=your-secret-key
+   STORAGE_S3_REGION=us-east-1
+   ```
+
+   **Option B: Static File Serving**
+   ```ini
+   STORAGE_TYPE=static
+   STORAGE_STATIC_BASE_URL=https://cdn.example.com/reels/
+   ```
+
+5. **Configure `.env`**
+   ```ini
+   IG_USER_ID=your-instagram-user-id
+   IG_ACCESS_TOKEN=your-long-lived-access-token
+   ```
+
+### Usage
+
+#### Immediate Publishing
+
+Publish a previously generated run immediately:
+
+```powershell
+# Generate videos first
+python -m reelsbot run --count 1 --type A --dry-run
+
+# Publish immediately to Instagram
+python -m reelsbot publish run_20251220_123456 --now
+
+# Publish and share to main feed
+python -m reelsbot publish run_20251220_123456 --now --share-to-feed
+```
+
+#### Scheduled Publishing
+
+Generate videos and schedule for later:
+
+```powershell
+# Schedule for Christmas Day at 6PM UTC
+python -m reelsbot enqueue --count 3 --mix --schedule-at 2025-12-25T18:00:00Z
+
+# Schedule for tomorrow at noon
+python -m reelsbot enqueue --count 1 --type A --schedule-at 2025-12-21T12:00:00Z
+```
+
+**Start the worker** to process scheduled posts:
+
+```powershell
+# Run worker with default 45s interval
+python -m reelsbot worker
+
+# Custom interval
+python -m reelsbot worker --interval 60
+
+# Background daemon (Windows: use pythonw.exe)
+pythonw -m reelsbot worker --daemon
+```
+
+### Storage Adapters
+
+#### S3-Compatible (AWS, MinIO, DigitalOcean Spaces)
+
+Generates presigned URLs valid for 1 hour (default):
+
+```ini
+STORAGE_TYPE=s3
+STORAGE_S3_BUCKET=reelsbot-videos
+STORAGE_S3_ENDPOINT=https://s3.amazonaws.com
+STORAGE_S3_PRESIGNED_EXPIRY=3600
+```
+
+**Benefits:**
+- Private storage with temporary public URLs
+- Works with AWS S3, MinIO, DigitalOcean Spaces, etc.
+- Automatic URL expiration for security
+
+#### Static URL (nginx, CDN)
+
+Copies files to local directory for static serving:
+
+```ini
+STORAGE_TYPE=static
+STORAGE_STATIC_BASE_URL=https://cdn.example.com/reels/
+STORAGE_STATIC_OUTPUT_DIR=outputs/static
+```
+
+**Benefits:**
+- Simple setup with nginx or any web server
+- No cloud storage costs
+- Suitable for small-scale deployments
+
+### Rate Limits & Safety
+
+Instagram enforces the following limits:
+
+- **50 posts per 24 hours** (media_publish endpoint)
+- **100 posts per 24 hours** (overall)
+- **400 container creations per 24 hours**
+
+reelsbot automatically:
+- Tracks publish count and warns when approaching limit
+- Retries on transient errors (5xx, network timeouts)
+- Fails safely on policy violations (UNSAFE_CONTENT, EXPIRED containers)
+- Masks access tokens in logs (shows only last 4 characters)
+
+### Troubleshooting Instagram Publishing
+
+#### Container Expired Error
+
+**Error:**
+```
+ContainerExpiredError: Container expired. Containers expire after 24 hours.
+```
+
+**Solution:**
+- Containers have 24-hour validity
+- Re-enqueue with fresh schedule time
+- Worker will automatically recreate container
+
+#### Rate Limit Exceeded
+
+**Error:**
+```
+RateLimitError: Rate limit reached: 50/50 posts in 24h
+```
+
+**Solution:**
+- Wait for rate limit window to reset (24 hours)
+- Reduce posting frequency
+- Check `IG_RATE_LIMIT_PER_DAY` setting
+
+#### Unsafe Content
+
+**Error:**
+```
+UnsafeContentError: Content flagged as unsafe
+```
+
+**Solution:**
+- Review generated content
+- Regenerate with different parameters
+- Check caption complies with Instagram policies
+
+#### Invalid Video Format
+
+**Error:**
+```
+InvalidVideoError: Video format or duration invalid
+```
+
+**Solution:**
+- Ensure video is MP4, H.264 codec
+- Duration must be 3-90 seconds for Reels
+- Resolution should be 1080x1920 (9:16)
+
+#### Token Issues
+
+**Error:**
+```
+ValueError: Instagram configuration incomplete
+```
+
+**Solution:**
+```powershell
+# Verify .env settings
+notepad .env
+
+# Check token is valid
+# IG_USER_ID=123456789
+# IG_ACCESS_TOKEN=your-token-here
+
+# Test configuration
+python -m reelsbot info
+```
+
+### Monitoring Scheduled Posts
+
+Check scheduled posts in SQLite:
+
+```powershell
+# View all scheduled posts
+sqlite3 outputs\db\reelsbot.db "SELECT * FROM scheduled_posts WHERE status='QUEUED';"
+
+# View failed posts
+sqlite3 outputs\db\reelsbot.db "SELECT * FROM scheduled_posts WHERE status='FAILED';"
+
+# View recently published
+sqlite3 outputs\db\reelsbot.db "SELECT * FROM scheduled_posts WHERE status='PUBLISHED' ORDER BY published_at DESC LIMIT 10;"
+```
+
+---
+
+## Privacy Policy
+
+Our privacy policy for Instagram Graph API usage is available at:
+**https://aomizuki0307.github.io/reelsbot/privacy.html**
+
+### Data Deletion Requests
+
+If you wish to delete your data from our application:
+1. Send an email to **groob66610@gmail.com** with the subject "Data Deletion Request"
+2. Include your Instagram User ID
+3. We will process your request within 30 days
+
+For more information, see our [Privacy Policy](https://aomizuki0307.github.io/reelsbot/privacy.html).
+
+---
+
 ### Future Enhancements
-- Instagram Graph API integration for live publishing
 - Advanced video generation (Manim, 3D rendering)
 - Analytics dashboard
-- Content scheduling
 - Multi-platform support (TikTok, YouTube Shorts)
 - Custom music library integration
 - A/B testing framework

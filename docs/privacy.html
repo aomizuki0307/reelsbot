@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - ReelsBot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 5px;
+        }
+        p, li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        .last-updated {
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 30px;
+        }
+        .contact {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        .contact strong {
+            color: #2c3e50;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            h2 {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Privacy Policy</h1>
+        <p class="last-updated"><strong>Last Updated:</strong> December 21, 2025</p>
+
+        <p>This Privacy Policy describes how ReelsBot ("we", "our", or "the Application") collects, uses, and protects your information when you use our Instagram Reels automation service.</p>
+
+        <h2>1. Information We Collect</h2>
+        <p>When you use ReelsBot, we collect and process the following types of data:</p>
+        <ul>
+            <li><strong>Instagram User ID:</strong> Your Instagram account identifier to enable posting functionality.</li>
+            <li><strong>Access Token:</strong> Instagram Graph API access token to authenticate and authorize actions on your behalf.</li>
+            <li><strong>Media URLs:</strong> URLs of media content (videos, images) generated or posted through the Application.</li>
+            <li><strong>Generated Content:</strong> Videos and captions created by the Application for your Instagram Reels.</li>
+            <li><strong>Application Logs:</strong> Technical logs including error messages, timestamps, and system events for troubleshooting and performance improvement.</li>
+        </ul>
+
+        <h2>2. How We Use Your Information</h2>
+        <p>We use the collected information for the following purposes:</p>
+        <ul>
+            <li><strong>Content Generation:</strong> To automatically generate Instagram Reels videos and captions based on your preferences.</li>
+            <li><strong>Scheduling and Publishing:</strong> To schedule and publish content to your Instagram account at specified times.</li>
+            <li><strong>Error Analysis:</strong> To analyze application logs for debugging, error tracking, and performance optimization.</li>
+            <li><strong>Service Improvement:</strong> To enhance the functionality and reliability of the Application.</li>
+        </ul>
+
+        <h2>3. Data Storage</h2>
+        <p><strong>Storage Location:</strong></p>
+        <ul>
+            <li>Local SQLite database (<code>scheduler.db</code>)</li>
+            <li>Local filesystem (<code>outputs/</code> directory)</li>
+            <li>Application log files</li>
+            <li>Optional: S3-compatible storage services (if configured by the user)</li>
+        </ul>
+        <p><strong>Storage Duration:</strong> Your data is stored until you request deletion. We do not automatically delete data unless you explicitly request it.</p>
+
+        <h2>4. Third-Party Sharing</h2>
+        <p>We do not share your personal information with third parties, except in the following limited circumstances:</p>
+        <ul>
+            <li><strong>Infrastructure Providers:</strong> If you choose to use S3-compatible storage, your media files may be stored with your configured cloud storage provider. We do not share data with any other third parties.</li>
+            <li><strong>Instagram/Meta:</strong> Content is posted to your Instagram account via the official Instagram Graph API as authorized by you.</li>
+        </ul>
+        <p>We do not sell, rent, or trade your personal information to any third parties.</p>
+
+        <h2>5. Data Security</h2>
+        <p>We implement reasonable security measures to protect your data from unauthorized access, alteration, or destruction. However, no method of electronic storage is 100% secure, and we cannot guarantee absolute security.</p>
+
+        <h2>6. Your Data Rights</h2>
+        <p>You have the following rights regarding your data:</p>
+        <ul>
+            <li><strong>Access:</strong> You can access your stored data at any time through the Application's output directories and database.</li>
+            <li><strong>Deletion:</strong> You can request deletion of all your data by contacting us (see contact information below).</li>
+            <li><strong>Correction:</strong> You can modify or update your data by reconfiguring the Application settings.</li>
+        </ul>
+
+        <h2>7. Data Deletion Requests</h2>
+        <p>To request deletion of your data:</p>
+        <ol>
+            <li>Send an email to <a href="mailto:groob66610@gmail.com">groob66610@gmail.com</a> with the subject line "Data Deletion Request".</li>
+            <li>Include your Instagram User ID or any identifying information that helps us locate your data.</li>
+            <li>We will process your deletion request within 30 days and confirm once completed.</li>
+        </ol>
+        <p>Upon deletion, we will remove:</p>
+        <ul>
+            <li>All generated media files (videos, thumbnails)</li>
+            <li>Metadata and scheduling information</li>
+            <li>Application logs related to your account</li>
+            <li>Access tokens and authentication credentials</li>
+        </ul>
+
+        <h2>8. Cookies and Tracking</h2>
+        <p>ReelsBot is not a browser-based application and does not use cookies or web tracking technologies.</p>
+
+        <h2>9. Children's Privacy</h2>
+        <p>This Application is not intended for users under the age of 13. We do not knowingly collect personal information from children under 13. If you believe we have inadvertently collected such information, please contact us immediately.</p>
+
+        <h2>10. Changes to This Privacy Policy</h2>
+        <p>We may update this Privacy Policy from time to time. Any changes will be reflected on this page with an updated "Last Updated" date. We encourage you to review this policy periodically.</p>
+
+        <h2>11. International Data Transfers</h2>
+        <p>Your data may be stored and processed in any location where we or our service providers maintain facilities. By using the Application, you consent to the transfer of your data to countries outside your country of residence.</p>
+
+        <h2>12. Legal Basis for Processing (GDPR)</h2>
+        <p>If you are located in the European Economic Area (EEA), our legal basis for collecting and using your data is:</p>
+        <ul>
+            <li><strong>Consent:</strong> You have explicitly authorized the Application to access your Instagram account.</li>
+            <li><strong>Contract Performance:</strong> Processing is necessary to provide the services you requested.</li>
+            <li><strong>Legitimate Interests:</strong> To improve and maintain the Application's functionality.</li>
+        </ul>
+
+        <div class="contact">
+            <h2>13. Contact Us</h2>
+            <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your data, please contact us:</p>
+            <p><strong>Developer:</strong> aomizuki</p>
+            <p><strong>Email:</strong> <a href="mailto:groob66610@gmail.com">groob66610@gmail.com</a></p>
+            <p><strong>GitHub:</strong> <a href="https://github.com/aomizuki0307/reelsbot" target="_blank">https://github.com/aomizuki0307/reelsbot</a></p>
+        </div>
+    </div>
+</body>
+</html>
