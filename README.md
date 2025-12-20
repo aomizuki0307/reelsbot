@@ -917,10 +917,11 @@ sqlite3 outputs\db\reelsbot.db "SELECT * FROM scheduled_posts WHERE status='PUBL
 
 ---
 
-## Privacy Policy
+## Privacy Policy & Terms of Service
 
-Our privacy policy for Instagram Graph API usage is available at:
-**https://aomizuki0307.github.io/reelsbot/privacy.html**
+Our privacy policy and terms of service for Instagram Graph API usage:
+- **Privacy Policy**: https://aomizuki0307.github.io/reelsbot/privacy.html
+- **Terms of Service**: https://aomizuki0307.github.io/reelsbot/terms.html
 
 ### Data Deletion Requests
 
