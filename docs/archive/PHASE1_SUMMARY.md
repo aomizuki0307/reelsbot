@@ -206,7 +206,7 @@ With the foundation complete, these components can now be built:
 
 1. Clone/navigate to project:
 ```bash
-cd C:/Users/wandt/AI_coding/workspace/projects/reelsbot
+cd <repo-root>
 ```
 
 2. Install dependencies:

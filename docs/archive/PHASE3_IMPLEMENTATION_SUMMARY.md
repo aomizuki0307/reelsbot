@@ -345,7 +345,7 @@ Phase 3 is complete! Ready for Phase 4: Orchestration
 ## Contributors
 
 Implementation by Claude Code (Anthropic)
-Specification by wandt
+Specification by the repository owner
 
 ## License
 

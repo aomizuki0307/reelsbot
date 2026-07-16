@@ -294,7 +294,7 @@ Comprehensive test suite covering all Phase 2 modules:
 
 **Run Tests**:
 ```bash
-cd C:\Users\wandt\AI_coding\workspace\projects\reelsbot
+cd <repo-root>
 python test_phase2.py
 ```
 

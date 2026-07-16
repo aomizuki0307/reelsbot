@@ -14,7 +14,7 @@
 - **A-type (Abstract)**: Mesmerizing visual loops with inspirational taglines (8-12 seconds)
 - **E-type (Educational/Fictional)**: Fictional brand concepts and designs (10-14 seconds)
 
-The system handles the entire pipeline: content planning, video generation, caption writing, policy validation, and publishing (dry-run mode in MVP).
+The system handles the entire pipeline: content planning, video generation, caption writing, policy validation, and publishing — either dry-run (local files only) or live posting to Instagram via the official Graph API.
 
 ### Key Features
 
@@ -250,7 +250,7 @@ python -m reelsbot run --count 1 --type E
 # Generate 7 videos with mixed ratio (70:30)
 python -m reelsbot run --count 7 --mix
 
-# Live mode (requires Instagram credentials - not implemented in MVP)
+# Live mode (requires Instagram Graph API credentials)
 python -m reelsbot run --count 1 --type A --live
 ```
 

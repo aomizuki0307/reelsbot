@@ -364,7 +364,7 @@ src/reelsbot/
 
 ### 1. Installation Test
 ```bash
-cd C:\Users\wandt\AI_coding\workspace\projects\reelsbot
+cd <repo-root>
 python3 -m pip install -e .
 # ✅ SUCCESS: Package installed successfully
 ```

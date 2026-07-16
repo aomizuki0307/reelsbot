@@ -45,7 +45,7 @@ Phase 2 of the reelsbot project implements the complete core business logic laye
 
 ```bash
 # Clone repository
-cd C:\Users\wandt\AI_coding\workspace\projects\reelsbot
+cd <repo-root>
 
 # Create virtual environment (Python 3.11+)
 python -m venv venv
@@ -594,7 +594,7 @@ echo "ANTHROPIC_API_KEY=your_key_here" > .env
 
 ```bash
 # Ensure you're running from project root
-cd C:\Users\wandt\AI_coding\workspace\projects\reelsbot
+cd <repo-root>
 python verify_phase2.py
 ```
 
